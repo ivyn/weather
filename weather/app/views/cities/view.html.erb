@@ -1,0 +1,13 @@
+ <h1>Cities View</h1>
+
+ <% @cities.each_value do |city| %>
+    <p>
+        In <%= city.name %>, it's <%= city.weather[:temperature] %>°K
+        and it looks like <%= city.weather[:description] %>.
+        Its population is <%= city.population %> and its landmark is <%= city.landmark %>.
+    </p>
+ <% end %>
+
+<% if @cities.empty? %>
+    <p>There are no cities</p>
+<% end %>

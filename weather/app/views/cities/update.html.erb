@@ -1,0 +1,13 @@
+<% if @city %>
+    <%= form_with url: "/cities/update", local: true, method: "post" do |f| %>
+       Name: <%= f.text_field :city, readonly: true, value: @city.name %>
+       <br>
+       Landmark: <%= f.text_field :landmark %>
+       <br>
+       Population: <%= f.number_field :population %>
+       <br>
+       <%= f.submit %>
+     <% end %>
+    <% else %>
+    That doesn't match an existing city.
+<% end %>

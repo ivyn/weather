@@ -1,0 +1,19 @@
+ <% if not @w.nil? %>
+	<p>
+		It's <%= @temperature %>°F in <%= @w[:city] %>
+		and it looks like <%= @w[:description] %>
+	</p>
+ <% end %>
+ <%= form_with local: true, method: "get" do |f| %>
+   <%= f.text_field :city %>
+   <%= f.text_field :landmark %>
+   <%= f.text_field :city %>
+   <%= f.submit %>
+ <% end %>
+
+ <% City.all.each_value do |city| %>
+    <p>
+        It's <%= city.weather[:temperature] %>°F in <%= city.name %>
+        and it looks like <%= city.weather[:description] %>
+    </p>
+ <% end %>
